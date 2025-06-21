@@ -55,7 +55,7 @@ class _HomescreenState extends State<Homescreen> {
                   ),
                    Container(
                     height: 45,
-                    width: 200,
+                    width: 201,
                     color: Colors.green,
                   ),
                   ],
