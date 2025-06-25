@@ -16,6 +16,19 @@ class _SplashScreenState extends State<SplashScreen>
   late Animation<Offset> _slideAnimation;
   late Animation<double> _fadeAnimation;
 
+  bool ispressed = false;
+
+  void _ontap() {
+    setState(() {
+      ispressed = !ispressed;
+    });
+    Future.delayed(const Duration(seconds: 1), () {
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    });
+  }
+
   @override
   void initState() {
     super.initState();
@@ -25,24 +38,16 @@ class _SplashScreenState extends State<SplashScreen>
       duration: const Duration(milliseconds: 5000),
     );
 
-    // Initialize both animations safely
     _slideAnimation = Tween<Offset>(
       begin: const Offset(0.0, 1.0),
       end: Offset.zero,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeOut,
-    ));
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeOut));
 
     _fadeAnimation = Tween<double>(
       begin: 0.0,
       end: 1.0,
-    ).animate(CurvedAnimation(
-      parent: _controller,
-      curve: Curves.easeIn,
-    ));
+    ).animate(CurvedAnimation(parent: _controller, curve: Curves.easeIn));
 
-    // Start the animation
     _controller.forward();
   }
 
@@ -57,9 +62,7 @@ class _SplashScreenState extends State<SplashScreen>
     return Scaffold(
       body: Stack(
         children: [
-          Container(
-            color: const Color.fromRGBO(138, 25, 214, 1),
-          ),
+          Container(color: const Color.fromRGBO(138, 25, 214, 1)),
           Padding(
             padding: const EdgeInsets.all(24.0),
             child: Column(
@@ -79,16 +82,18 @@ class _SplashScreenState extends State<SplashScreen>
                   child: FadeTransition(
                     opacity: _fadeAnimation,
                     child: GestureDetector(
-                      onTap: () {
-                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=>LoginScreen()));
-                      
-                      },
-                      child: Container(
+                      onTap: _ontap,
+
+                      child: AnimatedContainer(
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
                         height: 60,
                         width: MediaQuery.of(context).size.width,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(32),
-                          color: Colors.white,
+                          color: ispressed
+                              ? const Color.fromRGBO(138, 25, 214, 1)
+                              : Colors.white,
                         ),
                         child: Center(
                           child: Row(
@@ -99,11 +104,16 @@ class _SplashScreenState extends State<SplashScreen>
                                 style: GoogleFonts.inter(
                                   fontSize: 19,
                                   fontWeight: FontWeight.w700,
-                                  color: const Color.fromRGBO(138, 25, 214, 1),
+                                  color: ispressed
+                                      ? Colors.white
+                                      : const Color.fromRGBO(138, 25, 214, 1),
                                 ),
                               ),
                               const SizedBox(width: 5),
-                              Image.asset("assets/png/Vector.png"),
+                              Image.asset(
+                                "assets/png/Vector.png",
+                                color: ispressed ? Colors.white : null,
+                              ),
                             ],
                           ),
                         ),
@@ -113,7 +123,7 @@ class _SplashScreenState extends State<SplashScreen>
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );
