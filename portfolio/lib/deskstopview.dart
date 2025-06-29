@@ -34,7 +34,7 @@ class Deskstopview extends StatelessWidget {
             child: CircleAvatar(
               radius: 95,
               backgroundColor: Colors.transparent,
-              backgroundImage: AssetImage("assets/newsuite.png"),
+              backgroundImage: AssetImage("assets/profile.jpg"),
             ),
           ),
         ),

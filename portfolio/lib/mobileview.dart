@@ -13,7 +13,7 @@ class Mobileview extends StatelessWidget {
         children: [
           Center(
             child: Container(
-              width: 200, // radius * 2 + padding
+              width: 200,
               height: 200,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
@@ -35,7 +35,7 @@ class Mobileview extends StatelessWidget {
               child: CircleAvatar(
                 radius: 95,
                 backgroundColor: Colors.transparent,
-                backgroundImage: AssetImage("assets/newsuite.png"),
+                backgroundImage: AssetImage("assets/profile.jpg"),
               ),
             ),
           ),
