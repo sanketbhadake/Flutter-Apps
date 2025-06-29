@@ -17,19 +17,19 @@ class _LoginScreenState extends State<LoginScreen> {
   final TextEditingController _emailcontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
   final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-
   Future<void> loginLogic() async {
     if (_emailcontroller.text.trim().isNotEmpty &&
-        _passwordcontroller.text.trim().isEmpty) {
+        _passwordcontroller.text.trim().isNotEmpty) {
       try {
         UserCredential userCredential = await firebaseAuth
             .signInWithEmailAndPassword(
-              email: _emailcontroller.text,
-              password: _passwordcontroller.text,
+              email: _emailcontroller.text.trim(),
+              password: _passwordcontroller.text.trim(),
             );
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
-            backgroundColor: Colors.green,
+            backgroundColor: const Color.fromRGBO(138, 25, 214, 1),
             content: Center(
               child: Text(
                 "Login Successfully",
@@ -38,24 +38,44 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ),
         );
-        log("usercreaditial: $userCredential");
-      } on FirebaseException catch (e) {
+
+        log("userCredential: $userCredential");
+
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (context) => const BottomNavigation()),
+        );
+      } on FirebaseAuthException catch (e) {
+        String errorMessage = '';
+
+        switch (e.code) {
+          case 'user-not-found':
+            errorMessage = 'No user found for that email.';
+            break;
+          case 'wrong-password':
+            errorMessage = 'Wrong password provided.';
+            break;
+          case 'invalid-email':
+            errorMessage = 'The email address is invalid.';
+            break;
+          case 'user-disabled':
+            errorMessage = 'This user has been disabled.';
+            break;
+          default:
+            errorMessage = 'Please Register Account';
+        }
+
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             backgroundColor: Colors.red,
             content: Center(
               child: Text(
-                "$e",
+                errorMessage,
                 style: GoogleFonts.dmSans(fontSize: 18, color: Colors.white),
               ),
             ),
           ),
         );
       }
-
-      Navigator.of(
-        context,
-      ).push(MaterialPageRoute(builder: (context) => const BottomNavigation()));
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(

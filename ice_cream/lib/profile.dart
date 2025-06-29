@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class Profile extends StatefulWidget {
   const Profile({super.key});
@@ -541,14 +543,18 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
             ),
-            Positioned(
-              right: 45,
-              top: 295,
-              left: 153,
-              child: SvgPicture.asset(
-                "assets/svg/icone_editar_foto.svg",
-                height: 90,
-                width: 90,
+            GestureDetector(
+              //Image picker add
+              onTap: () {},
+              child: Positioned(
+                right: 45,
+                top: 295,
+                left: 153,
+                child: SvgPicture.asset(
+                  "assets/svg/icone_editar_foto.svg",
+                  height: 90,
+                  width: 90,
+                ),
               ),
             ),
           ],
