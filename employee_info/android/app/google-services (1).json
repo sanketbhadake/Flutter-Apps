@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "990962206841",
+    "project_id": "playersinfo-ea821",
+    "storage_bucket": "playersinfo-ea821.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:990962206841:android:54e56591257d16438eeca8",
+        "android_client_info": {
+          "package_name": "com.example.playerinfo_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9X9mFIvkiY_okRWL0AcefzM2JyyqdaVk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

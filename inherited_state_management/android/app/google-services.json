@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "335907449674",
+    "project_id": "inheritedwidget-73ffa",
+    "storage_bucket": "inheritedwidget-73ffa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:335907449674:android:a58cdd27436573319d6fb3",
+        "android_client_info": {
+          "package_name": "com.example.inherited_state_management"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzqtCq0vHUscckRc9gvcRvUoWcFL7jclY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

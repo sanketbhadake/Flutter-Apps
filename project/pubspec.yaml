@@ -1,0 +1,57 @@
+name: project
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  cloud_firestore: ^5.4.4
+  firebase_core: ^3.6.0
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.10+1
+  google_fonts: ^6.2.1
+  persistent_bottom_nav_bar: ^6.2.1
+  carousel_slider: ^5.0.0
+  smooth_page_indicator: ^1.2.0+3
+  image_picker: ^1.1.2
+  firebase_auth: ^5.3.3
+  sqflite: ^2.4.1
+  firebase_database: ^11.1.6
+  shared_preferences: ^2.3.3
+  intl: 0.19.0
+  firebase_storage: ^12.3.6
+  flutter_datetime_picker: ^1.5.1
+   
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+  - assets/
+  - assets/overloaded/
+  - assets/blue/
+  - assets/pink/
+  - assets/highlight/
+  - assets/barbie/
+  - assets/heart/
+  - assets/cupcake/
+  - assets/cookies/
+  - assets/pastries/
+  - assets/cheesecake/
+  - assets/browinie/
+  - assets/tea cake/
+  - assets/logo.png
+  - assets/svg/
+  - assets/Line 72.png
+  - assets/clock1.png
+  - assets/regular.png
+  - assets/cupcake1.jpg
+  - assets/Brownie.png  
+    

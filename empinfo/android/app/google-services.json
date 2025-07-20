@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "366687694632",
+    "project_id": "empinfo-2b951",
+    "storage_bucket": "empinfo-2b951.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:366687694632:android:3959d3ed64cde9eb996a1d",
+        "android_client_info": {
+          "package_name": "com.example.empinfo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrWKdQ4Ts7v7qONUVyXhSC2_kZEqcy-qU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
